@@ -1,16 +1,14 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Random;
 
 import javax.swing.*;
 
 public class Game extends Canvas implements Runnable {
+	//I actually have no idea how to run this or whether it should extend Applet or Canvas
 	boolean start;
 	Private thread gameThread;
 
@@ -33,7 +31,7 @@ public class Game extends Canvas implements Runnable {
     	return image;
 	}
 
-	public void init(){
+	/*public void init(){
 		gameThread = new Thread(this, UpdateStuff);
 		gameThread.start();
 		setFrame(new JFrame(NAME));
@@ -47,8 +45,8 @@ public class Game extends Canvas implements Runnable {
 
 		CreateScene();
 		//currentLevel = new LevelController(this);
-	}
-
+	}*/
+	@Override
 	public void paint(Graphics g){
 		DrawScene(g)
 	}
@@ -66,7 +64,23 @@ public class Game extends Canvas implements Runnable {
 			} catch (InteruptedException e){;}
 		}
 	}
+	public synchronized void start(){
+		gameThread = new Thread(this, UpdateStuff);
+		gameThread.start();
+		/*setFrame(new JFrame(NAME));
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().setLayout(new BorderLayout());
+		getFrame().add(this, BorderLayout.CENTER);
+		getFrame().pack();
+		getFrame().setResizable(false);
+		getFrame().setLocationRelativeTo(null);
+		getFrame().setVisible(true);*/
 
+		CreateScene();
+	}
+	public synchronized void stop(){
+		
+	}
 	void CreateScene(){
 		defaultSceneObjects = makeImageTransparent(defaultSceneObjects);
 		sceneGraphics = sceneBackground.getGraphics();
