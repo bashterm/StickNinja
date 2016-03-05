@@ -1,4 +1,4 @@
-public class Character {
+/*public class Character {
 	public int state;
 	
 	int[] velocity;
@@ -138,4 +138,4 @@ public class Character {
 			return output;
 		}
 	}
-}
+}*/
