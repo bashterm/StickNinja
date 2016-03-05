@@ -1,9 +1,14 @@
 import java.util.*
+import java.awt.Graphics;
 public class levelController {
 	public int level;
 	Character character;
 	List<Ball> balls = new List<Ball>();
 	Game game;
+
+	double deltaTime = 0;
+	double lastTime;
+	double newTime;
 
 	public levelController(Game source){
 		character = new Character([0,0], 1);
@@ -38,8 +43,31 @@ public class levelController {
 
 	}
 
+	public Image drawObjects(Graphics g){
+		newTime = System.currentTimeMillis();
+		deltaTime = newTime - lastTime;
+		lastTime = newTime;
+
+		character.Update(deltaTime);
+		for(int i = 0; i < balls.count(); i++){
+			balls[i].Update(deltaTime);
+			g.setColor(balls[i].color);
+			g.drawCenteredCircle(g,balls[i].position[0],balls[i].position[1],r)
+		}
+		g.setColor(Color.black);
+		g = character.Draw(g);
+		return g;
+	}
+
+	void drawCenteredCircle(Graphics g, int x, int y, int r) {
+		x = x-(r/2);
+		y = y-(r/2);
+		g.fillOval(x,y,r,r);
+	}
+
 	private class Ball {
 		public int[] position;
+		public Color color;
 		int[] velocity;
 		double radius;
 		double density;
@@ -55,6 +83,7 @@ public class levelController {
 			density = d;
 			mass = 4 / 3 * (3.1415926535) * r * r * r;
 			momentum = [mass * velocity[0], mass * velocity[1]];
+			color = (255 * density / 40, 255 * density / 40, 255 * density / 40);
 		}
 
 		public void Update(double deltaTime){
