@@ -10,9 +10,9 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
-import Game.GamePanel;
-import Main.Frame;
-import Main.ShowFPS;
+//import Game.GamePanel;
+//import Main.Frame;
+//import Main.ShowFPS;
 
 public class MenuPanel extends JPanel implements Runnable{
 	Thread thread = new Thread(this);
@@ -45,8 +45,8 @@ public class MenuPanel extends JPanel implements Runnable{
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Frame.setComponent(new GamePanel());
-				System.out.println("Hiu");
+				//Frame.setComponent(new GamePanel());
+				//System.out.println("Hiu");
 				
 			}
 
@@ -99,7 +99,7 @@ public class MenuPanel extends JPanel implements Runnable{
 		g.setFont(new Font("Arial", Font.ITALIC, 40));
 		g.drawString("Click anywhere to start", 40, 60);
 		
-		ShowFPS.drawFPS(g);
+		//ShowFPS.drawFPS(g);
 	}
 	
 	public void define(){
