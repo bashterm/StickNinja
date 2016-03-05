@@ -22,7 +22,8 @@ public class Character {
 		/*for(int i = 0; i < animationStates[0].length; i++){
 			myAnimations[i] = new Animation();//add hard coded animations here
 		}*/
-		myAnimations[0] = new Animation(new int[[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]],[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]]]);
+		myAnimations[0] = new Animation(new int[,,]);
+		myAnimations[1] = new Animation(new int[[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]],[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]]]);
 
 		this.position = position;
 		this.size = size;
