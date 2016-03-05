@@ -19,9 +19,8 @@ public class Character {
 
 	int[,,] defaultPoses = new int[,,]{[[-10, -40], [-10, 0], [10, 40], [10, 0], [0, 0], [0, 40], [-13, 40], [-13, 0], [13, 40], [13, 0], [0, 45], [0, 60]]}
 	public Character(int[] position, int size){
-		/*for(int i = 0; i < animationStates[0].length; i++){
-			myAnimations[i] = new Animation();//add hard coded animations here
-		}*/
+		animationStates = [[0, 0],[0, 0.8]];
+
 		myAnimations[0] = new Animation(new int[,,]);
 		myAnimations[1] = new Animation(new int[[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]],[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]]]);
 
@@ -102,8 +101,7 @@ public class Character {
 
 
 	}
-
-	class Animation {
+	private class Animation {
 		//int[,] headTimesAndOffset;
 		//int[,] neckTimesAndOffset;
 		//int[,] shouldCenterTimesAndOffset;
@@ -141,3 +139,4 @@ public class Character {
 		}
 	}
 }
+
