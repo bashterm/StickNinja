@@ -8,6 +8,7 @@ public class levelController {
 	public levelController(Game source){
 		character = new Character([0,0], 1);
 		game = source;
+		game.myChracter = character;
 	}
 
 	void CheckCollisions(){
