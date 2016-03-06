@@ -30,8 +30,8 @@ public class Character {
 	public Character(int[] position, int size){
 		animationStates = [[0, 0],[0, 0.8]];
 
-		myAnimations[0] = new Animation(new int[,,]);
-		myAnimations[1] = new Animation(new int[[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]],[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]]]);
+		//myAnimations[0] = new Animation(new int[,,]);
+		//myAnimations[1] = new Animation(new int[[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]],[[0, 0.2, 0.6, 0.8],[0, 4, -4, 0]],[[0, 0.2, 0.6, 0.8],[0, -4, 4, 0]]]);
 
 		myController = new Controller();
 		this.position = position;
@@ -157,20 +157,9 @@ public class Character {
 
 	}
 	private class Animation {
-		//int[,] headTimesAndOffset;
-		//int[,] neckTimesAndOffset;
-		//int[,] shouldCenterTimesAndOffset;
-		//int[,] LeftShoulderTimesAndOffset;
-		//int[,] RightShoulderTimesAndOffset;
-		int[,] LeftHandTimesAndOffset;
-		int[,] RightHandTimesAndOffset;
-		//int[,] TorsoTimesAndOffset;
-		//int[,] LeftTorsoTimesAndOffset;
-		//int[,] RightTorsoTimesAndOffset;
-		int[,] LeftFootTimesAndOffset;
-		int[,] RightFootTimesAndOffset;
+		int[,] LeftLowerLeg, LeftUpperLeg, RightLowerLeg, RightUppderLeg, Hip, SpineTop, LeftShoulder, LeftUpperArm, LeftLowerArm, RightShoulder, RightUpperArm, RightLowerArm, Neck, Head;
 
-		int[,,] partTimesAndOffset = int[,,]{LeftHandTimesAndOffset, RightHandTimesAndOffset, LeftFootTimesAndOffset, RightFootTimesAndOffset};
+		int[,,] partTimesAndOffset = int[,,]{LeftLowerLeg, LeftUpperLeg, RightLowerLeg, RightUppderLeg, Hip, SpineTop, LeftShoulder, LeftUpperArm, LeftLowerArm, RightShoulder, RightUpperArm, RightLowerArm, Neck, Head};
 
 		public Animation(int[,,] givenTimesAndOffsets){
 			for(int i = 0; i < givenTimesAndOffsets.length; i++){
