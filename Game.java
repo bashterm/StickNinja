@@ -1,16 +1,15 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.*; //Imports everything under java.awt. * Is just a wildcard
+import java.lang.Thread;
 
 import javax.swing.*;
-
+//class game with all aspects of canvas and some of runnable
 public class Game extends Canvas implements Runnable {
 	//I actually have no idea how to run this or whether it should extend Applet or Canvas
+	//Probably should extend Applet because Canvas is for making guis using swing.
 	boolean start;
-	Private thread gameThread;
+	public Thread gameThread;
 
 	Image sceneBackground = createImage(500, 500);
 	Image sceneObjects = createImage(500, 500);
@@ -23,8 +22,8 @@ public class Game extends Canvas implements Runnable {
 	//LevelController currentLevel;
 	//public Character myCharacter;
 	public Image makeImageTransparent (Image image){
-		for (int i = 0; i < image.getHeight(); i++) {
-	        for (int j = 0; j < image.getWidth(); j++) {
+		for (int i = 0; i < image.getHeight(); i++) { //compiler says we need some sort of ImageObserver.
+	        for (int j = 0; j < image.getWidth(); j++) { //compiler says same thing
 	            image.setRGB(j, i, 0xFF000000);
 	        }
 	    }
@@ -48,12 +47,12 @@ public class Game extends Canvas implements Runnable {
 	}*/
 	@Override
 	public void paint(Graphics g){
-		DrawScene(g)
+		DrawScene(g);
 	}
 
 	public void run(){
 		while(true){
-			Thread game = Thread.currentThred();
+			Thread game = Thread.currentThread();
 			if(game == gameThread){
 				//currentLevel.update();
 			}
